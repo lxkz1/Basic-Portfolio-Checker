@@ -1,4 +1,4 @@
-# Portfolio Tracker (Python)
+# Portfolio Checker (Python)
 
 A command-line program that answers "how are my stocks doing right now?" without manually checking each one. The user tells it what they own — ticker symbol, shares held, and price paid per share — and it pulls live prices from Yahoo Finance to calculate current value, gain/loss in dollars, and gain/loss as a percentage, for each holding and for the portfolio as a whole.
 
