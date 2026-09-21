@@ -1,18 +1,21 @@
 import yfinance
-
+import sys
 
 def main():
     print("Welcome to the Stock Value Calculator!")
     print("This program will calculate the current value of your portfolio/stock holdings based on the ticker symbol and number of shares you own.")
-    numberofstocks = int(input("How many stocks do u own inside your portfolio? "))
-    if type(numberofstocks) != int:
-        print("please enter a valid number of stocks next time")
+    try:
+        numberofstocks = int(input("How many stocks do u own inside your portfolio? "))
+    except ValueError:
+        sys.exit("We are sorry but it seems like your portfolio has 0 stocks as you have answered 0")
     else:
+        n = 0 
         for _ in range(numberofstocks):
             ticker, shares = get_user_stock_value()
             price = get_stock_price(ticker)
             total_value = price * shares
-        print(f"The current value of your all of your shares of is: ${total_value:.2f}")
+            n += total_value
+        print(f"The current value of your all of your shares of is: ${n:.2f}")
 
 
 def get_user_stock_value():
@@ -28,7 +31,7 @@ def get_share_amount():
             return shares
         else:
             print("Please enter a valid number of shares greater than 0.")
-            get_share_amount()
+            return get_share_amount()
 
 
 
